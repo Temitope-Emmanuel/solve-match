@@ -1,0 +1,66 @@
+@mixin heart {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+.reg_container {
+  align-self: center;
+  min-width: 100%;
+  min-height: 100vh;
+  @include heart();
+  .reg_form {
+    height: 90px;
+    height: fit-content;
+    justify-self: center;
+    max-width: 730px;
+    width: 100%;
+    background: #ffffe0;
+    padding: 13px 4%;
+    .title {
+      font-size: 31px;
+      font-weight: 1000;
+      font-family: klik_bold;
+      opacity: 0.78;
+      padding: 13px 40px;
+      padding-bottom: 20px;
+    }
+    .form {
+      .col-md-6 {
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      input {
+        background: #fbf3ca;
+        border: none !important;
+        height: 57px;
+        font-family: sand_small;
+        font-weight: normal;
+        padding-left: 25px;
+        color: #949383 !important;
+        &::placeholder {
+          color: #d2d1b6;
+        }
+      }
+      .reg_btn{
+        background: #fff268;
+        width: 250px;
+        max-width: 80%;
+        margin-top: 16px;
+        margin-bottom: 20px;
+        padding: 16px 10px;
+        font-size: 18px;
+        font-weight: lighter;
+        border-color: blanchedalmond !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 867px) {
+  .reg_form {
+  }
+}
