@@ -29,8 +29,9 @@ export default {
     body1:{
         fontFamily:"Kilk",
         color:palette.primary.dark,
-        fontWeight:"light",
+        fontWeight:"lighter",
         fontSize:"1.5rem",
-        lineHeight:"29.35px"
+        lineHeight:"29.35px",
+        opacity:.9
     }
 } as any
