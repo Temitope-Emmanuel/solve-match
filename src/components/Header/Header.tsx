@@ -156,14 +156,14 @@ export default function PrimarySearchAppBar() {
         <div className={classes.grow}>
             <AppBar elevation={0} position="static">
                 <Toolbar >
-                    <IconButton
+                    {/* <IconButton
                         edge="start"
                         className={classes.menuButton}
                         color="inherit"
                         aria-label="open drawer"
                     >
                         <FiMenu />
-                    </IconButton>
+                    </IconButton> */}
                     <Typography className={classes.title} variant="h6" noWrap>
                         SOLVE MATCH
           </Typography>
@@ -181,8 +181,11 @@ export default function PrimarySearchAppBar() {
                         <Link to="/">
                             Sponsorship
               </Link>
-                        <Link to="/">
+                        <Link to="/about">
                             About us
+              </Link>
+                        <Link to="/FAQ">
+                            FAQ
               </Link>
                     </div>
                     <div className={classes.sectionMobile}>

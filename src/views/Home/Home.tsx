@@ -1,12 +1,10 @@
 import React from "react"
-import {Link} from "react-router-dom"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
-import { Header, HStack, VStack } from "components"
-import { Box, Typography, Button, CardMedia,Grid } from "@material-ui/core"
+import { VStack } from "components"
+import { Box, Typography, Button, Grid } from "@material-ui/core"
 import {
-    Ellipse0, Ellipse2, Ellipse3, Ellipse4,
-    Ellipse5, Ellipse7, Ellipse8, Ellipse9,
-    Group2, Group3, Group4, Group6,Group7
+    Ellipse3, Ellipse2,Ellipse7, Eligibility,Ellipse1,Ellipse11,
+    Group2, Group3, Group4, Group6,Group7,Challenge,Challenge2, Ellipse13
 } from 'assets/images'
 
 
@@ -20,7 +18,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
             // fontWeight:"bold"
         },
         "& h3":{
-            margin:theme.spacing(5,0)
+            // marginTop:theme.spacing(7),
+            margin:theme.spacing(10,0)
         }
     },
     absoluteContainer: {
@@ -44,28 +43,35 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
                 opacity: .85
             }
         },
+        "& > :not(img)":{
+            position:"relative"
+        },
         "& button": {
             padding: theme.spacing(4,6)
         },
         "& img":{
             position:"absolute"
+        },
+        "& h3":{
+            margin:theme.spacing(5,0)
         }
     },
     imageContainer: {
         display:"flex",
         "& img":{
             maxWidth:"50%",
+        },
+        "& img:last-child":{
+            marginTop:"-5rem"
         }
     },
     challengeContainer: {
         backgroundColor: "#FFFFE0",
         padding: theme.spacing(7),
+        position:"relative",
         "& button": {
             padding: theme.spacing(2),
             marginTop: theme.spacing(4)
-        },
-        "& h3": {
-            margin: theme.spacing(5, 0)
         },
         "& > div": {
             display: "flex",
@@ -83,6 +89,31 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
                     }
                 }
             }
+        },
+        "& > img":{
+            position:"absolute",
+            maxWidth:"100%",
+            top:"0"
+        }
+    },
+    girlStudyContainer: {
+        backgroundColor: "#FFFFE0",
+        padding: theme.spacing(7),
+        position:"relative",
+        "& button": {
+            padding: theme.spacing(2),
+            marginTop: theme.spacing(4)
+        },
+        "& img":{
+            marginLeft:"-3rem"
+        },
+        "& > div":{
+            alignItems:"flex-start !important",
+            flexDirection:"row" ,
+            "& div:last-child":{
+                alignSelf:"flex-end",
+                marginLeft:"4rem"
+            }
         }
     },
     anotherChallengeContainer: {
@@ -95,11 +126,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        height:"45rem",
-        justifyContent: "center",
-        "& h3":{
-            margin:theme.spacing(5,0)
+        height:"55rem",
+        position:"relative",
+        "& > img":{
+            position:"absolute",
+            maxWidth:"100%",
+            top:"0"
         },
+        // "& h3":{
+        //     margin:theme.spacing(7.5,0)
+        // },
         "& p:last-child":{
             color:"#FF5470"
         },
@@ -108,7 +144,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
             width: "85%",
             height: "25rem",
             display: "flex",
-            // },
+            position:"relative",
             "& > div": {
                 display: "flex",
                 width: "100%",
@@ -151,6 +187,15 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         justifyContent:"center",
         alignItems:"center",
         flexDirection:"column",
+        position:"relative",
+        "& img":{
+            position:"absolute",
+            top:"0",
+            maxWidth:"100%"
+        },
+        // "& h3":{
+        //     margin:theme.spacing(7.5,0)
+        // },
         "& > div":{
             justifyContent:"center",
             "& > div":{
@@ -183,6 +228,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         justifyContent:"center",
         padding:theme.spacing(3),
         height:"45rem",
+        position:"relative",
+        "& > img":{
+            position:"absolute"
+        },
         "& p":{
             color:theme.palette.primary.dark,
             textAlign:"center",
@@ -203,39 +252,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         "& button":{
             padding:theme.spacing(1.75,5.5),
             margin:theme.spacing(2)
-        }
-    },
-    footerContainer:{
-        backgroundColor:theme.palette.secondary.main,
-        padding:theme.spacing(7,12),
-        height:"25rem",
-        display: "flex",
-        justifyContent: "space-between",
-        flexDirection: "column",
-        "& p,a":{
-            color:"#FFFFEE",
-            textDecoration:"none",
-            fontFamily:"Kilk",
-            fontSize:"1.125rem",
-            lineHeight:"40px",
-            fontWeight:500
         },
-        "& > p":{
-            textAlign:"center"
-        },
-        "& > div":{
-            display:"flex",
-            justifyContent:"space-between",
-            alignItems:"flex-start",
-            "& > div":{
-                maxWidth:"25rem",
-                display:"flex",
-                flexDirection:"column",
-                alignItems:"flex-start",
-                "& p:first-child":{
-                    fontWeight:700
-                }
-            }
+        "& :not:(img)":{
+            position:"relative"
         }
     }
 }))
@@ -274,34 +293,61 @@ const challengeContainer = [
     Facebook, Twitter, Instagram.`
 ]
 
-
-
 const Home = () => {
     const classes = useStyles()
 
     return (
         <VStack className={classes.root}>
-            <Header />
             <Box className={classes.absoluteContainer}>
+                <img src={Ellipse13} style={{
+                    height:"1rem",
+                    top:"17%",
+                    left:"40%"
+                }} />
                 <img src={Group3} style={{
-                    height:"40px",
+                    height:"7rem",
                     top:"10%"
                 }} />
-                {/* <div className={classes.imageContainer} style={{
-                    backgroundImage: `url(${Group2})`
-                }}>
-                </div>
-                <div className={classes.imageContainer} style={{
-                    backgroundImage: `url(${Group3})`
-                }}>
-                </div>
-                <div className={classes.imageContainer} style={{
-                    backgroundImage: `url(${Group4})`
-                }}>
-                </div> */}
-                {/* <div  image={Group2}  />
-                <div  image={Group3}  />
-                <div  image={Group4}  /> */}
+                <img src={Ellipse2} style={{
+                    height:"1rem",
+                    left:"15%",
+                    top:"15%"
+                }} />
+                <img src={Group4} style={{
+                    height:"5rem",
+                    left:"15%",
+                    bottom:"45%"
+                }} />
+                <img src={Group2} style={{
+                    height:"5rem",
+                    right:"15%",
+                    bottom:"5%"
+                }} />
+                <img src={Ellipse2} style={{
+                    height:"3rem",
+                    left:"15%",
+                    bottom:"10%"
+                }} />
+                <img src={Ellipse7} style={{
+                    height:"8rem",
+                    left:"0",
+                    bottom:"0%"
+                }} />
+                <img src={Ellipse3} style={{
+                    height:"1.5rem",
+                    right:"20%",
+                    top:"20%"
+                }} />
+                <img src={Ellipse1} style={{
+                    height:"4rem",
+                    right:"10%",
+                    top:"30%"
+                }} />
+                <img src={Ellipse2} style={{
+                    height:"3rem",
+                    right:"12%",
+                    top:"65%"
+                }} />
                 <Box>
                     <Typography variant="h3" >
                         Earn While You Learn
@@ -316,6 +362,7 @@ const Home = () => {
                 </Box>
             </Box>
             <Box className={classes.challengeContainer}>
+                <img src={Challenge} />
                 <Box>
                     <Typography variant="h3" >
                         About the Challenge
@@ -339,12 +386,12 @@ const Home = () => {
                     </Box>
                 </Box>
             </Box>
-            <Box className={classes.challengeContainer}>
+            <Box className={classes.girlStudyContainer}>
                 <Box className={classes.imageContainer}>
                     <img src={Group7} />
                     <Box>
                         <Box>
-                            <Typography variant="body1">
+                            {/* <Typography variant="body1">
                                 Globally, 2020 created an indelible footprint in the lives and minds of people, as the world
                                 experienced a major shift that history books couldn't exactly prescribe a solution for.
                                 Education for several children was greatly affected and it was said that over 60% of Nigerian
@@ -357,15 +404,27 @@ const Home = () => {
                                 While Feeding was a major problem, a financial limitation that has led to an inability to keep up
                                 with school fees payment has now become a bigger obstacle to a lot of parents who were greatly
                                 affected by the pandemic.
-                        </Typography>
+                        </Typography> */}
+                        </Box>
                             <Button>
                                 Take the Challenge
                         </Button>
-                        </Box>
                     </Box>
                 </Box>
             </Box>
             <Box className={classes.examinationContainer}>
+                <img src={Eligibility} />
+
+                <img src={Ellipse13} style={{
+                    height:"1.25rem",
+                    top:"7.5%",
+                    left:"10%"
+                }} />
+                <img src={Ellipse11} style={{
+                    height:"10rem",
+                    top:"-5rem",
+                    right:"0"
+                }} />
                 <Typography variant="h3">
                     Eligibility
                 </Typography>
@@ -377,7 +436,7 @@ const Home = () => {
                         </Typography>
                             <Typography>
                                 Students preparing for examination like
-                                WAEC NECO & JAMB SSS2 - SSS3
+                                WAEC NECO & JAMB <b>SSS2 - SSS3</b>
                         </Typography>
                             <Button>
                                 Register
@@ -390,14 +449,24 @@ const Home = () => {
                     </Typography>
             </Box>
             <Box className={classes.lastChallengeContainer}>
+                <img src={Challenge2} />
+                <img src={Ellipse13} style={{
+                    height:"1.5rem",
+                    top:"7%",
+                    left:"4%"
+                }} />
+                <img src={Ellipse2} style={{
+                    height:"1.5rem",
+                    top:"24%",
+                    right:"4%"
+                }} />
                 <Typography variant="h3" >How the Challenge Works</Typography>
-                
                 <Grid container spacing={2} >
                     {challengeContainer.map((item,idx) => (
                         <Grid item >
                             <Box className={classes.numberingContainer}>
                                 <Box>
-                                    {idx++}
+                                    {idx+1}
                                 </Box>
                             </Box>
                             <Box key={idx} >
@@ -409,7 +478,7 @@ const Home = () => {
                     ))}
                 </Grid>
             </Box>
-            <Box className={classes.rewardContainer}>
+            <Box className={classes.rewardContainer}>    
                 <Typography variant="h3">
                     Reward
                 </Typography>
@@ -431,58 +500,37 @@ const Home = () => {
                 <Button>
                     Register
                 </Button>
-            </Box>
-            <Box className={classes.footerContainer}>
-                <Box>
-                <Box>
-                    <Typography>
-                        SOLVE MATCH
-                    </Typography>
-                    <Typography>
-                        Solve Match is an interactive gaming platform that allows students
-                        to compete and win prizes for their knowledge.
-                    </Typography>
-                </Box>
-                <Box>
-                    <Link to="/">
-                        Home
-                    </Link>
-                    <Link to="/">
-                        Challenge
-                    </Link>
-                    <Link to="/">
-                        Eligibility
-                    </Link>
-                </Box>
-                <Box>
-                    <Link to="/" >
-                        Sponsorship
-                    </Link>
-                    <Link to="/" >
-                        About us
-                    </Link>
-                    <Link to="/" >
-                        FAQ
-                    </Link>
-                </Box>
-                <Box>
-                    <Typography>
-                        Contact us
-                    </Typography>
-                    <Link to="/" >
-                        +234 902 499 2444
-                    </Link>
-                    <Link to="/" >
-                        +234 906 732 4063
-                    </Link>
-                    <Link to="/" >
-                        info@solvematch.com
-                    </Link>
-                </Box>
-                </Box>
-                <Typography>
-                    Copyright (c) 2021. Solve Match
-                </Typography>
+                <img src={Ellipse13} style={{
+                    height:"1rem",
+                    top:"17%",
+                    left:"40%"
+                }} />
+                <img src={Ellipse2} style={{
+                    height:"1rem",
+                    left:"15%",
+                    top:"15%"
+                }} />
+                <img src={Ellipse2} style={{
+                    height:"3rem",
+                    left:"15%",
+                    bottom:"10%"
+                }} />
+                <img src={Ellipse3} style={{
+                    height:"1.5rem",
+                    right:"20%",
+                    top:"20%"
+                }} />
+                <img src={Ellipse1} style={{
+                    height:"4rem",
+                    right:"10%",
+                    top:"30%"
+                }} />
+                <img src={Ellipse2} style={{
+                    height:"3rem",
+                    right:"12%",
+                    top:"65%"
+                }} />
+            
             </Box>
         </VStack>
     )
