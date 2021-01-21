@@ -181,7 +181,7 @@ export default function PrimarySearchAppBar() {
                         <Link to="/">
                             Eligibility
               </Link>
-                        <Link to="/">
+                        <Link to="/sponsorship">
                             Sponsorship
               </Link>
                         <Link to="/about">
