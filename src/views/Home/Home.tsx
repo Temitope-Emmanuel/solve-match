@@ -1,10 +1,11 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import { VStack } from "components"
 import { Box, Typography, Button, Grid } from "@material-ui/core"
 import {
-    Ellipse3, Ellipse2,Ellipse7, Eligibility,Ellipse1,Ellipse11,
-    Group2, Group3, Group4, Group6,Group7,Challenge,Challenge2, Ellipse13
+    Ellipse3, Ellipse2, Ellipse7, Eligibility, Ellipse1, Ellipse11,
+    Group2, Group3, Group4, Group6, Group7, Challenge, Challenge2, Ellipse13
 } from 'assets/images'
 
 
@@ -17,9 +18,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
             textTransform: "none",
             // fontWeight:"bold"
         },
-        "& h3":{
+        "& h3": {
             // marginTop:theme.spacing(7),
-            margin:theme.spacing(10,0)
+            margin: theme.spacing(10, 0)
         }
     },
     absoluteContainer: {
@@ -43,32 +44,32 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
                 opacity: .85
             }
         },
-        "& > :not(img)":{
-            position:"relative"
+        "& > :not(img)": {
+            position: "relative"
         },
         "& button": {
-            padding: theme.spacing(4,6)
+            padding: theme.spacing(4, 6)
         },
-        "& img":{
-            position:"absolute"
+        "& img": {
+            position: "absolute"
         },
-        "& h3":{
-            margin:theme.spacing(5,0)
+        "& h3": {
+            margin: theme.spacing(5, 0)
         }
     },
     imageContainer: {
-        display:"flex",
-        "& img":{
-            maxWidth:"50%",
+        display: "flex",
+        "& img": {
+            maxWidth: "50%",
         },
-        "& img:last-child":{
-            marginTop:"-5rem"
+        "& img:last-child": {
+            marginTop: "-5rem"
         }
     },
     challengeContainer: {
         backgroundColor: "#FFFFE0",
         padding: theme.spacing(7),
-        position:"relative",
+        position: "relative",
         "& button": {
             padding: theme.spacing(2),
             marginTop: theme.spacing(4)
@@ -90,29 +91,29 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
                 }
             }
         },
-        "& > img":{
-            position:"absolute",
-            maxWidth:"100%",
-            top:"0"
+        "& > img": {
+            position: "absolute",
+            maxWidth: "100%",
+            top: "0"
         }
     },
     girlStudyContainer: {
         backgroundColor: "#FFFFE0",
         padding: theme.spacing(7),
-        position:"relative",
+        position: "relative",
         "& button": {
             padding: theme.spacing(2),
             marginTop: theme.spacing(4)
         },
-        "& img":{
-            marginLeft:"-3rem"
+        "& img": {
+            marginLeft: "-3rem"
         },
-        "& > div":{
-            alignItems:"flex-start !important",
-            flexDirection:"row" ,
-            "& div:last-child":{
-                alignSelf:"flex-end",
-                marginLeft:"4rem"
+        "& > div": {
+            alignItems: "flex-start !important",
+            flexDirection: "row",
+            "& div:last-child": {
+                alignSelf: "flex-end",
+                marginLeft: "4rem"
             }
         }
     },
@@ -126,25 +127,25 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        height:"55rem",
-        position:"relative",
-        "& > img":{
-            position:"absolute",
-            maxWidth:"100%",
-            top:"0"
+        height: "55rem",
+        position: "relative",
+        "& > img": {
+            position: "absolute",
+            maxWidth: "100%",
+            top: "0"
         },
         // "& h3":{
         //     margin:theme.spacing(7.5,0)
         // },
-        "& p:last-child":{
-            color:"#FF5470"
+        "& p:last-child": {
+            color: "#FF5470"
         },
         "& > div": {
             padding: theme.spacing(2, 3),
             width: "85%",
             height: "25rem",
             display: "flex",
-            position:"relative",
+            position: "relative",
             "& > div": {
                 display: "flex",
                 width: "100%",
@@ -160,11 +161,15 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
                     margin: theme.spacing(3, 0)
                 },
                 "& button": {
-                    padding:theme.spacing(1,5)
+                    padding: theme.spacing(1, 5)
                 },
                 "& p:first-child": {
-                    fontFamily:"KilkBold",
+                    fontFamily: "KilkBold",
                 },
+                "& a":{
+                    textDecoration:"none",
+                    color:"initial"
+                }
             },
             "& > div:first-child": {
                 backgroundColor: "#FFF9D7",
@@ -176,90 +181,88 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
                 backgroundColor: "#FFE4E9",
                 "& button": {
                     backgroundColor: "#FF5470 !important",
-                    color:"white"
+                    color: "white"
                 },
             },
         }
     },
-    lastChallengeContainer:{
-        backgroundColor:"#FFFFE0",
-        display:"flex",
-        justifyContent:"center",
-        alignItems:"center",
-        flexDirection:"column",
-        position:"relative",
-        "& img":{
-            position:"absolute",
-            top:"0",
-            maxWidth:"100%"
+    lastChallengeContainer: {
+        backgroundColor: "#FFFFE0",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        position: "relative",
+        "& img": {
+            position: "absolute",
+            top: "0",
+            maxWidth: "100%"
         },
         // "& h3":{
         //     margin:theme.spacing(7.5,0)
         // },
-        "& > div":{
-            justifyContent:"center",
-            "& > div":{
-                display:"flex",
-                margin:theme.spacing(2),
-                maxWidth:"40rem"
+        "& > div": {
+            justifyContent: "center",
+            "& > div": {
+                display: "flex",
+                margin: theme.spacing(2),
+                maxWidth: "40rem"
             }
         }
     },
-    numberingContainer:{
-        "& > div":{
-            borderRadius:"50%",
-            display:"flex",
-            justifyContent:"center",
-            alignItems:"center",
-            width:"2rem",
-            margin:theme.spacing(2),
-            marginTop:"0",
-            height:"2rem",
-            border:"2px solid black",
-            borderColor:theme.palette.primary.dark
-        
+    numberingContainer: {
+        "& > div": {
+            borderRadius: "50%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "2rem",
+            margin: theme.spacing(2),
+            marginTop: "0",
+            height: "2rem",
+            border: "2px solid black",
+            borderColor: theme.palette.primary.dark
+
         }
     },
-    rewardContainer:{
-        backgroundColor:"#FFFFE0",
-        display:"flex",
-        flexDirection:"column",
-        alignItems:"center",
-        justifyContent:"center",
-        padding:theme.spacing(3),
-        height:"45rem",
-        position:"relative",
-        "& > img":{
-            position:"absolute"
+    rewardContainer: {
+        backgroundColor: "#FFFFE0",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: theme.spacing(3),
+        height: "45rem",
+        position: "relative",
+        "& > img": {
+            position: "absolute"
         },
-        "& p":{
-            color:theme.palette.primary.dark,
-            textAlign:"center",
-            maxWidth:"63rem",
-            margin:theme.spacing(.5)
+        "& p": {
+            color: theme.palette.primary.dark,
+            textAlign: "center",
+            maxWidth: "63rem",
+            margin: theme.spacing(.5)
         },
-        "& p:nth-child(3)":{
-            fontSize:"6rem",
-            color:theme.palette.secondary.main,
-            fontWeight:"bolder",
-            margin:theme.spacing(2,0),
-            lineHeight:"119.62px"
+        "& p:nth-child(3)": {
+            fontSize: "6rem",
+            color: theme.palette.secondary.main,
+            fontWeight: "bolder",
+            margin: theme.spacing(2, 0),
+            lineHeight: "119.62px"
         },
-        "& p:nth-child(4)":{
-            color:theme.palette.secondary.main,
-           fontSize:"1.125rem" 
+        "& p:nth-child(4)": {
+            color: theme.palette.secondary.main,
+            fontSize: "1.125rem"
         },
-        "& button":{
-            padding:theme.spacing(1.75,5.5),
-            margin:theme.spacing(2)
+        "& button": {
+            padding: theme.spacing(1.75, 5.5),
+            margin: theme.spacing(2)
         },
-        "& :not:(img)":{
-            position:"relative"
+        "& :not:(img)": {
+            position: "relative"
         }
     }
 }))
-
-
 
 
 
@@ -296,57 +299,59 @@ const challengeContainer = [
 const Home = () => {
     const classes = useStyles()
 
+
+
     return (
         <VStack className={classes.root}>
             <Box className={classes.absoluteContainer}>
                 <img src={Ellipse13} style={{
-                    height:"1rem",
-                    top:"17%",
-                    left:"40%"
+                    height: "1rem",
+                    top: "17%",
+                    left: "40%"
                 }} />
                 <img src={Group3} style={{
-                    height:"7rem",
-                    top:"10%"
+                    height: "7rem",
+                    top: "10%"
                 }} />
                 <img src={Ellipse2} style={{
-                    height:"1rem",
-                    left:"15%",
-                    top:"15%"
+                    height: "1rem",
+                    left: "15%",
+                    top: "15%"
                 }} />
                 <img src={Group4} style={{
-                    height:"5rem",
-                    left:"15%",
-                    bottom:"45%"
+                    height: "5rem",
+                    left: "15%",
+                    bottom: "45%"
                 }} />
                 <img src={Group2} style={{
-                    height:"5rem",
-                    right:"15%",
-                    bottom:"5%"
+                    height: "5rem",
+                    right: "15%",
+                    bottom: "5%"
                 }} />
                 <img src={Ellipse2} style={{
-                    height:"3rem",
-                    left:"15%",
-                    bottom:"10%"
+                    height: "3rem",
+                    left: "15%",
+                    bottom: "10%"
                 }} />
                 <img src={Ellipse7} style={{
-                    height:"8rem",
-                    left:"0",
-                    bottom:"0%"
+                    height: "8rem",
+                    left: "0",
+                    bottom: "0%"
                 }} />
                 <img src={Ellipse3} style={{
-                    height:"1.5rem",
-                    right:"20%",
-                    top:"20%"
+                    height: "1.5rem",
+                    right: "20%",
+                    top: "20%"
                 }} />
                 <img src={Ellipse1} style={{
-                    height:"4rem",
-                    right:"10%",
-                    top:"30%"
+                    height: "4rem",
+                    right: "10%",
+                    top: "30%"
                 }} />
                 <img src={Ellipse2} style={{
-                    height:"3rem",
-                    right:"12%",
-                    top:"65%"
+                    height: "3rem",
+                    right: "12%",
+                    top: "65%"
                 }} />
                 <Box>
                     <Typography variant="h3" >
@@ -406,8 +411,8 @@ const Home = () => {
                                 affected by the pandemic.
                         </Typography> */}
                         </Box>
-                            <Button>
-                                Take the Challenge
+                        <Button>
+                            Take the Challenge
                         </Button>
                     </Box>
                 </Box>
@@ -416,14 +421,14 @@ const Home = () => {
                 <img src={Eligibility} />
 
                 <img src={Ellipse13} style={{
-                    height:"1.25rem",
-                    top:"7.5%",
-                    left:"10%"
+                    height: "1.25rem",
+                    top: "7.5%",
+                    left: "10%"
                 }} />
                 <img src={Ellipse11} style={{
-                    height:"10rem",
-                    top:"-5rem",
-                    right:"0"
+                    height: "10rem",
+                    top: "-5rem",
+                    right: "0"
                 }} />
                 <Typography variant="h3">
                     Eligibility
@@ -437,10 +442,12 @@ const Home = () => {
                             <Typography>
                                 Students preparing for examination like
                                 WAEC NECO & JAMB <b>SSS2 - SSS3</b>
-                        </Typography>
-                            <Button>
-                                Register
+                            </Typography>
+                            <Link to="/registration" >
+                                <Button>
+                                    Register
                         </Button>
+                            </Link>
                         </Box>
                     ))}
                 </Box>
@@ -451,34 +458,34 @@ const Home = () => {
             <Box className={classes.lastChallengeContainer}>
                 <img src={Challenge2} />
                 <img src={Ellipse13} style={{
-                    height:"1.5rem",
-                    top:"7%",
-                    left:"4%"
+                    height: "1.5rem",
+                    top: "7%",
+                    left: "4%"
                 }} />
                 <img src={Ellipse2} style={{
-                    height:"1.5rem",
-                    top:"24%",
-                    right:"4%"
+                    height: "1.5rem",
+                    top: "24%",
+                    right: "4%"
                 }} />
                 <Typography variant="h3" >How the Challenge Works</Typography>
                 <Grid container spacing={2} >
-                    {challengeContainer.map((item,idx) => (
+                    {challengeContainer.map((item, idx) => (
                         <Grid item >
                             <Box className={classes.numberingContainer}>
                                 <Box>
-                                    {idx+1}
+                                    {idx + 1}
                                 </Box>
                             </Box>
                             <Box key={idx} >
-                               <Typography variant="body1" >
-                                {item+1}
-                               </Typography>
+                                <Typography variant="body1" >
+                                    {item + 1}
+                                </Typography>
                             </Box>
                         </Grid>
                     ))}
                 </Grid>
             </Box>
-            <Box className={classes.rewardContainer}>    
+            <Box className={classes.rewardContainer}>
                 <Typography variant="h3">
                     Reward
                 </Typography>
@@ -494,43 +501,43 @@ const Home = () => {
                 <Typography variant="body1">
                     The bounty will be equally shared amongst all students that win at the final stage.
                     So this means, if we have 100 winners, that's #20,000 each or 10 winners, that's #200,000 each.
-                    <br/>
+                    <br />
                     Get set to win!
                 </Typography>
                 <Button>
                     Register
                 </Button>
                 <img src={Ellipse13} style={{
-                    height:"1rem",
-                    top:"17%",
-                    left:"40%"
+                    height: "1rem",
+                    top: "17%",
+                    left: "40%"
                 }} />
                 <img src={Ellipse2} style={{
-                    height:"1rem",
-                    left:"15%",
-                    top:"15%"
+                    height: "1rem",
+                    left: "15%",
+                    top: "15%"
                 }} />
                 <img src={Ellipse2} style={{
-                    height:"3rem",
-                    left:"15%",
-                    bottom:"10%"
+                    height: "3rem",
+                    left: "15%",
+                    bottom: "10%"
                 }} />
                 <img src={Ellipse3} style={{
-                    height:"1.5rem",
-                    right:"20%",
-                    top:"20%"
+                    height: "1.5rem",
+                    right: "20%",
+                    top: "20%"
                 }} />
                 <img src={Ellipse1} style={{
-                    height:"4rem",
-                    right:"10%",
-                    top:"30%"
+                    height: "4rem",
+                    right: "10%",
+                    top: "30%"
                 }} />
                 <img src={Ellipse2} style={{
-                    height:"3rem",
-                    right:"12%",
-                    top:"65%"
+                    height: "3rem",
+                    right: "12%",
+                    top: "65%"
                 }} />
-            
+
             </Box>
         </VStack>
     )

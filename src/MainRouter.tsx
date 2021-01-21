@@ -5,6 +5,8 @@ import {About} from "views/AboutUs"
 import {Header} from "components/Header"
 import {Footer} from "components/Footer"
 import {FAQ} from "views/FAQ"
+import {Registration} from "components/Form"
+
 
 const MainRouter = () => {
     return(
@@ -13,7 +15,7 @@ const MainRouter = () => {
         <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/about" component={About} />
+            <Route exact path="/registration" component={Registration} />
             <Route exact path="/FAQ" component={FAQ} />
         </Switch>
         <Footer/>
