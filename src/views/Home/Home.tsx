@@ -7,6 +7,11 @@ import {
     Ellipse3, Ellipse2, Ellipse7, Eligibility, Ellipse1, Ellipse11,
     Group2, Group3, Group4, Group6, Group7, Challenge, Challenge2, Ellipse13
 } from 'assets/images'
+import {autoPlay} from "react-swipeable-views-utils"
+import SwipeableViews from "react-swipeable-views"
+
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
 
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -38,11 +43,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            "& p": {
-                maxWidth: "24rem",
-                margin: theme.spacing(6),
-                opacity: .85
-            }
+        },
+        "& p": {
+            maxWidth: "30rem",
+            margin: theme.spacing(6,"auto"),
+            opacity: .85,
+            textAlign:"center"
         },
         "& > :not(img)": {
             position: "relative"
@@ -295,9 +301,34 @@ const challengeContainer = [
     publicly on our social media channel:
     Facebook, Twitter, Instagram.`
 ]
+const carouselDetail = [
+    {
+        title:"Earn While You Learn",
+        text:"With Solve Match you can earn from your knowledge while you learn.",
+        showButton:true
+    },
+    {
+        title:"Easy,Exciting & Intriguing",
+        text:"We want to make learning easy, exciting, and intriguing the same way children find it easy to connect, play, and have fun.",
+        showButton:true
+    },
+    {
+        title:"Motivating!",
+        text:"We want to motivate you to learn and prepare you to earn",
+        showButton:false
+    },
+    {
+        title:"Learn",
+        text:"Our mission is to let everyone, everywhere learn with joy, purpose, and rigor",
+        showButton:false
+    }
+]
+
 
 const Home = () => {
     const classes = useStyles()
+    const [index,setIndex] = React.useState(1)
+    
 
 
 
@@ -353,18 +384,22 @@ const Home = () => {
                     right: "12%",
                     top: "65%"
                 }} />
-                <Box>
-                    <Typography variant="h3" >
-                        Earn While You Learn
-                    </Typography>
-                    <Typography variant="body1">
-                        With Solve Match you can earn from your
-                        knowledge while you learn
-                    </Typography>
-                    <Button>
-                        Take the Challenge
-                    </Button>
-                </Box>
+                <AutoPlaySwipeableViews index={index} onChangeIndex={setIndex} >
+                    {carouselDetail.map((item,idx) => (
+                        <Box key={idx} >
+                        <Typography variant="h3" >
+                            {item.title}
+                        </Typography>
+                        <Typography variant="body1">
+                        {item.text}
+                        </Typography>
+                        {item.showButton && 
+                        <Button>
+                            Take the Challenge
+                        </Button>}
+                    </Box>
+                    ))}
+                </AutoPlaySwipeableViews>
             </Box>
             <Box className={classes.challengeContainer}>
                 <img src={Challenge} />
