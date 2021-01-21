@@ -33,8 +33,11 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         sectionDesktop: {
             display: 'none',
-            flex: 1,
             justifyContent: "space-between",
+            flex: 1,
+            [theme.breakpoints.down("md")]:{
+                flex: 2
+            },
             "& a": {
                 textDecoration: "none",
                 fontFamily: "Kilk",

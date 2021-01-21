@@ -10,12 +10,12 @@ import {
 import {autoPlay} from "react-swipeable-views-utils"
 import SwipeableViews from "react-swipeable-views"
 
-
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
-
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
+        width:"100vw",
+        overflowX:"hidden",
         "& button": {
             backgroundColor: theme.palette.secondary.dark,
             color: theme.palette.primary.dark,
@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         },
         "& h3": {
             // marginTop:theme.spacing(7),
-            margin: theme.spacing(10, 0)
+            margin: theme.spacing(10, 0),
+            // [theme.breakpoints.]
         }
     },
     absoluteContainer: {
@@ -35,6 +36,15 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         backgroundColor: "#FFFFEE",
         position: "relative",
         height: "75vh",
+        "& img:nth-child(1),& img:nth-child(2),& img:nth-child(3),& img:nth-child(4)":{
+            display:"none",
+            [theme.breakpoints.up("sm")]:{
+                display:"block"
+            }
+        },
+        [theme.breakpoints.up("sm")]:{
+            height: "80vh"
+        },
         "& > div": {
             minWidth: "100px",
             minHeight: "100px",
@@ -44,17 +54,48 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
             alignItems: "center",
             flexDirection: "column",
         },
+        "& > img:first-child":{
+            height: "1rem",
+            display:"none",
+            top: "17%",
+            left: "40%"
+        },
+        "& > img:nth-child(2)":{
+            // display:"none",
+            height: "5rem",
+            left: "35%",
+            top: "25%",
+            [theme.breakpoints.up("md")]:{
+                height: "7rem",
+                top: "15%",
+            }
+        },
+        "& > img:nth-child(3)":{
+            height: "5rem",
+            left: "5%",
+            bottom: "30%",
+            [theme.breakpoints.up("md")]:{
+                left: "15%",
+                bottom: "45%",
+            }
+        },
         "& p": {
-            maxWidth: "30rem",
             margin: theme.spacing(6,"auto"),
             opacity: .85,
-            textAlign:"center"
+            textAlign:"center",
+            maxWidth: "20rem",
+            [theme.breakpoints.up("sm")]:{
+                maxWidth: "45rem"
+            }
         },
         "& > :not(img)": {
             position: "relative"
         },
         "& button": {
-            padding: theme.spacing(4, 6)
+            padding: theme.spacing(2, 3),
+            [theme.breakpoints.up("sm")]:{
+                padding: theme.spacing(4, 6)
+            }
         },
         "& img": {
             position: "absolute"
@@ -65,11 +106,28 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
     imageContainer: {
         display: "flex",
+        maxWidth:"120rem",
         "& img": {
             maxWidth: "50%",
         },
         "& img:last-child": {
-            marginTop: "-5rem"
+            marginTop: "-6rem"
+        },
+        [theme.breakpoints.down("md")]:{
+            flexDirection:"column-reverse",
+            justifyContent:"center",
+            alignItems:"center",
+            "& > *":{
+                marginTop:theme.spacing(3),
+                width:"100% !important",
+                display:"flex",
+                flexDirection:"column",
+                alignItems:"center !important",
+                "& p":{
+                    maxWidth:"50rem",
+                    textAlign:"center"
+                }
+            }
         }
     },
     challengeContainer: {
@@ -100,12 +158,15 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         "& > img": {
             position: "absolute",
             maxWidth: "100%",
+            objectFit:"cover",
             top: "0"
         }
     },
     girlStudyContainer: {
         backgroundColor: "#FFFFE0",
-        padding: theme.spacing(7),
+        [theme.breakpoints.up("sm")]:{
+            padding: theme.spacing(7)
+        },
         position: "relative",
         "& button": {
             padding: theme.spacing(2),
@@ -115,8 +176,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
             marginLeft: "-3rem"
         },
         "& > div": {
-            alignItems: "flex-start !important",
-            flexDirection: "row",
+            maxWidth:"100rem",
+            flexDirection: "column",
+            alignItems: "center",
+            [theme.breakpoints.up("sm")]:{
+                alignItems: "flex-start",
+                flexDirection: "row"
+            },
             "& div:last-child": {
                 alignSelf: "flex-end",
                 marginLeft: "4rem"
@@ -127,40 +193,51 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         "& p:first-child": {
             color: theme.palette.primary.dark
         }
-    },
+    },  
     examinationContainer: {
         backgroundColor: "#FFFFEE",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        height: "55rem",
         position: "relative",
+        [theme.breakpoints.up("md")]:{
+            height: "55rem",
+        },
         "& > img": {
             position: "absolute",
             maxWidth: "100%",
             top: "0"
         },
-        // "& h3":{
-        //     margin:theme.spacing(7.5,0)
-        // },
         "& p:last-child": {
             color: "#FF5470"
         },
+        "& span":{
+            [theme.breakpoints.up("md")]:{
+                fontSize:"calc(1vw+1rem)"
+            }
+        },
         "& > div": {
-            padding: theme.spacing(2, 3),
-            width: "85%",
-            height: "25rem",
             display: "flex",
             position: "relative",
+            flexDirection:"column",
+            [theme.breakpoints.up("md")]:{
+                padding: theme.spacing(2, 3),
+                width: "85%",
+                flexDirection:"row",
+                height: "25rem",
+            },
             "& > div": {
                 display: "flex",
-                width: "100%",
                 alignItems: "flex-start",
                 justifyContent: "center",
                 flexDirection: "column",
                 height: "fit-content",
-                padding: theme.spacing(5),
+                padding: theme.spacing(2.5),
                 margin: theme.spacing(3),
+                [theme.breakpoints.up("md")]:{
+                    width: "100%",
+                    padding: theme.spacing(5)
+                },
                 "& p": {
                     maxWidth: "25rem",
                     color: theme.palette.primary.dark,
@@ -204,9 +281,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
             top: "0",
             maxWidth: "100%"
         },
-        // "& h3":{
-        //     margin:theme.spacing(7.5,0)
-        // },
         "& > div": {
             justifyContent: "center",
             "& > div": {
@@ -245,16 +319,21 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         },
         "& p": {
             color: theme.palette.primary.dark,
+            position:"relative",
+            zIndex:2,
             textAlign: "center",
             maxWidth: "63rem",
             margin: theme.spacing(.5)
         },
         "& p:nth-child(3)": {
-            fontSize: "6rem",
+            fontSize: "3rem",
             color: theme.palette.secondary.main,
             fontWeight: "bolder",
             margin: theme.spacing(2, 0),
-            lineHeight: "119.62px"
+            lineHeight: "119.62px",
+            [theme.breakpoints.up("sm")]:{
+                fontSize: "6rem"
+            }
         },
         "& p:nth-child(4)": {
             color: theme.palette.secondary.main,
@@ -335,56 +414,46 @@ const Home = () => {
     return (
         <VStack className={classes.root}>
             <Box className={classes.absoluteContainer}>
-                <img src={Ellipse13} style={{
-                    height: "1rem",
-                    top: "17%",
-                    left: "40%"
-                }} />
-                <img src={Group3} style={{
-                    height: "7rem",
-                    top: "10%"
-                }} />
-                <img src={Ellipse2} style={{
-                    height: "1rem",
-                    left: "15%",
-                    top: "15%"
-                }} />
-                <img src={Group4} style={{
-                    height: "5rem",
-                    left: "15%",
-                    bottom: "45%"
-                }} />
-                <img src={Group2} style={{
+                <img alt="" src={Ellipse13}/>
+                <img alt="" src={Group3}/>
+                <img alt="" src={Group4}/>
+                <img alt="" src={Group2} style={{
                     height: "5rem",
                     right: "15%",
                     bottom: "5%"
                 }} />
-                <img src={Ellipse2} style={{
+                <img alt="" src={Ellipse2} style={{
+                    height: "1rem",
+                    left: "15%",
+                    top: "15%"
+                }} />
+                <img alt="" src={Ellipse2} style={{
                     height: "3rem",
                     left: "15%",
                     bottom: "10%"
                 }} />
-                <img src={Ellipse7} style={{
+                <img alt="" src={Ellipse7} style={{
                     height: "8rem",
                     left: "0",
                     bottom: "0%"
                 }} />
-                <img src={Ellipse3} style={{
+                <img alt="" src={Ellipse3} style={{
                     height: "1.5rem",
                     right: "20%",
                     top: "20%"
                 }} />
-                <img src={Ellipse1} style={{
+                <img alt="" src={Ellipse1} style={{
                     height: "4rem",
                     right: "10%",
                     top: "30%"
                 }} />
-                <img src={Ellipse2} style={{
+                <img alt="" src={Ellipse2} style={{
                     height: "3rem",
                     right: "12%",
                     top: "65%"
                 }} />
-                <AutoPlaySwipeableViews index={index} onChangeIndex={setIndex} >
+                <AutoPlaySwipeableViews index={1} onChangeIndex={setIndex} >
+                {/* <AutoPlaySwipeableViews index={index} onChangeIndex={setIndex} > */}
                     {carouselDetail.map((item,idx) => (
                         <Box key={idx} >
                         <Typography variant="h3" >
@@ -394,7 +463,7 @@ const Home = () => {
                         {item.text}
                         </Typography>
                         {item.showButton && 
-                        <Button>
+                        <Button color="primary" >
                             Take the Challenge
                         </Button>}
                     </Box>
@@ -402,7 +471,7 @@ const Home = () => {
                 </AutoPlaySwipeableViews>
             </Box>
             <Box className={classes.challengeContainer}>
-                <img src={Challenge} />
+                <img alt="challenge" src={Challenge} />
                 <Box>
                     <Typography variant="h3" >
                         About the Challenge
@@ -422,13 +491,13 @@ const Home = () => {
                                 Take the Challenge
                             </Button>
                         </Box>
-                        <img src={Group6} />
+                        <img alt="group" src={Group6} />
                     </Box>
                 </Box>
             </Box>
             <Box className={classes.girlStudyContainer}>
                 <Box className={classes.imageContainer}>
-                    <img src={Group7} />
+                    <img alt="" src={Group7} />
                     <Box>
                         <Box>
                             {/* <Typography variant="body1">
@@ -453,14 +522,14 @@ const Home = () => {
                 </Box>
             </Box>
             <Box className={classes.examinationContainer}>
-                <img src={Eligibility} />
+                <img alt="" src={Eligibility} />
 
-                <img src={Ellipse13} style={{
+                <img alt="" src={Ellipse13} style={{
                     height: "1.25rem",
                     top: "7.5%",
                     left: "10%"
                 }} />
-                <img src={Ellipse11} style={{
+                <img alt="" src={Ellipse11} style={{
                     height: "10rem",
                     top: "-5rem",
                     right: "0"
@@ -491,13 +560,13 @@ const Home = () => {
                     </Typography>
             </Box>
             <Box className={classes.lastChallengeContainer}>
-                <img src={Challenge2} />
-                <img src={Ellipse13} style={{
+                <img alt="" src={Challenge2} />
+                <img alt="" src={Ellipse13} style={{
                     height: "1.5rem",
                     top: "7%",
                     left: "4%"
                 }} />
-                <img src={Ellipse2} style={{
+                <img alt="" src={Ellipse2} style={{
                     height: "1.5rem",
                     top: "24%",
                     right: "4%"
@@ -505,7 +574,7 @@ const Home = () => {
                 <Typography variant="h3" >How the Challenge Works</Typography>
                 <Grid container spacing={2} >
                     {challengeContainer.map((item, idx) => (
-                        <Grid item >
+                        <Grid item xs={12} md={6} >
                             <Box className={classes.numberingContainer}>
                                 <Box>
                                     {idx + 1}
@@ -542,32 +611,32 @@ const Home = () => {
                 <Button>
                     Register
                 </Button>
-                <img src={Ellipse13} style={{
+                <img alt="" src={Ellipse13} style={{
                     height: "1rem",
                     top: "17%",
                     left: "40%"
                 }} />
-                <img src={Ellipse2} style={{
+                <img alt="" src={Ellipse2} style={{
                     height: "1rem",
                     left: "15%",
                     top: "15%"
                 }} />
-                <img src={Ellipse2} style={{
+                <img alt="" src={Ellipse2} style={{
                     height: "3rem",
                     left: "15%",
                     bottom: "10%"
                 }} />
-                <img src={Ellipse3} style={{
+                <img alt="" src={Ellipse3} style={{
                     height: "1.5rem",
                     right: "20%",
                     top: "20%"
                 }} />
-                <img src={Ellipse1} style={{
+                <img alt="" src={Ellipse1} style={{
                     height: "4rem",
                     right: "10%",
                     top: "30%"
                 }} />
-                <img src={Ellipse2} style={{
+                <img alt="" src={Ellipse1} style={{
                     height: "3rem",
                     right: "12%",
                     top: "65%"

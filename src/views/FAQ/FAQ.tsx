@@ -10,14 +10,22 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         justifyContent:"center",
         alignItems:"center",
         flexDirection:"column",
-        paddingTop:theme.spacing(10),
-        "& h3":{
-            // marginTop:theme.spacing(7),
-            // margin:theme.spacing(7,0)
+        [theme.breakpoints.down("md")]:{
+            "& p":{
+                fontSize:"1rem"
+            }
+        },
+        [theme.breakpoints.up("md")]:{
+            paddingTop:theme.spacing(10),
+            "& h3":{
+                margin:theme.spacing(7,0)
+            },
+            "& > p":{
+                margin:theme.spacing(8,0)
+            }
         },
         "& > p":{
             color:theme.palette.secondary.main,
-            margin:theme.spacing(8,0)
         },
         "& > div":{
             backgroundColor:"#FFFFE0",

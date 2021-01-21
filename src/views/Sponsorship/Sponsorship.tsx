@@ -43,10 +43,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 
 
-const About = () => {
+const Sponsorship = () => {
     const classes = useStyles()
-
-
     return (
         <Box className={classes.root}>
             <Typography variant="h3" >
@@ -87,4 +85,4 @@ const About = () => {
 }
 
 
-export default About
+export default Sponsorship
